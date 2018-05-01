@@ -59,9 +59,8 @@ module Agents
       sections.each do |section|
         section.all.each do |entry|
           updated_at = Integer(entry.attribute_hash['updated_at'])
-          puts updated_at
           if updated_at > last_check
-            puts "Entry is going to be completed"
+            create_event_for entry
           end
         end
       end
@@ -69,9 +68,9 @@ module Agents
 
     def create_event_for(entry)
       create_event :payload => { 
-        'title' => entry.title,
+        'title' => entry.attributes_hash['title'],
         'action' => 'updated',
-        'type' => entry.type
+        'type' => entry.attribute_hash['type']
       }    
     end
 
