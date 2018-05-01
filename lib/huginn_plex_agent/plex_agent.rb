@@ -27,7 +27,7 @@ module Agents
     def validate_options
       errors.add(:base, 'You must provide a valid server address to poll for the updates') unless options['hostname'].present?
       errors.add(:base, 'You must provide a valid server port to poll for the updates.') unless options['port'].present?
-      errors.add(:base, 'You must provide a valid server API key. You can generate one at https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/') unless options['server_address'].present?
+      errors.add(:base, 'You must provide a valid server API key. You can generate one at https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/') unless options['api_key'].present?
       
       # There may be more but this is all I can think of right now
     end
