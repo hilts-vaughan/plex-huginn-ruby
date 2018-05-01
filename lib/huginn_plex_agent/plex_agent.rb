@@ -45,21 +45,23 @@ module Agents
 
     def perform_check
       Plex.configure do |config|
-        config.auth_token = options['api_key'] # The API key provided from the code
+        config.auth_token = options[:api_key] # The API key provided from the code
       end
-
+  
       # The last updated timestamp in the memory cache
-      last_check = memory['last_check']
-
+      last_check = 0
+  
       # Query the service now
-      server = Plex::Server.new(options['hostname'], options['port'])
+      server = Plex::Server.new(options[:hostname], options[:port])
       sections = server.library.sections
       
       sections = server.library.sections
       sections.each do |section|
-        section.select do |entry|
-          if entry.updatedAt > last_check
-            create_event_for entry
+        section.all.each do |entry|
+          updated_at = Integer(entry.attribute_hash['updated_at'])
+          puts updated_at
+          if updated_at > last_check
+            puts "Entry is going to be completed"
           end
         end
       end
