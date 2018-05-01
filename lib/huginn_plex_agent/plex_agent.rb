@@ -52,7 +52,7 @@ module Agents
       last_check = memory['last_check']
 
       # Query the service now
-      server = Plex::Server.new(options['hostname'], CONFIG[options['port']])
+      server = Plex::Server.new(options['hostname'], options['port'])
       sections = server.library.sections
       
       sections = server.library.sections
