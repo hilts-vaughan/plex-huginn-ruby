@@ -38,7 +38,7 @@ module Agents
 
     def check
       # Update the memory if the last check has been a while
-      memory['last_check'] = memory['last_check'] || Time.now.getutc
+      memory['last_check'] = memory['last_check'] || Time.now.to_i
 
       perform_check
       update_timestamp
