@@ -37,7 +37,8 @@ module Agents
     end
 
     def check
-      memory['last_check'] ||= Time.now.getutc
+      # Update the memory if the last check has been a while
+      memory['last_check'] = memory['last_check'] || Time.now.getutc
 
       perform_check
       update_timestamp
@@ -48,8 +49,8 @@ module Agents
         config.auth_token = options[:api_key] # The API key provided from the code
       end
   
-      # The last updated timestamp in the memory cache
-      last_check = 0
+      # The last updated timestamp in the memory cache and then use this as a basis point
+      last_check = memory['last_check']
   
       # Query the service now
       server = Plex::Server.new(options[:hostname], options[:port])
