@@ -10,7 +10,7 @@ module Agents
     cannot_receive_events!
 
     description <<-MD
-      This agent integates with Plex Media Server using the plex-ruby API and gives you notifications about various Plex Media Server events going on so
+      This agent integates with Plex Media Server using the plex-ruby API and gives you notifications about various Plex Media fplex events going on so
       that you can generate events from them.
 
       To start with, the only supported events are the events for media being added but more will be added over time.
@@ -68,7 +68,7 @@ module Agents
 
     def create_event_for(entry)
       create_event :payload => { 
-        'title' => entry.attributes_hash['title'],
+        'title' => entry.attribute_hash['title'],
         'action' => 'updated',
         'type' => entry.attribute_hash['type']
       }    
