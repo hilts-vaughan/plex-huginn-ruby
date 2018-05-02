@@ -77,7 +77,7 @@ module Agents
 
     def update_timestamp
       # The variable memory can be used in here to let you know when things are saved. 
-      memory['last_check'] = Time.now.getutc
+      memory['last_check'] = Time.now.to_i
     end
   end
 end
