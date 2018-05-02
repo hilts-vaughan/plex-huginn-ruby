@@ -8,10 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Vaughan Hilts"]
   spec.email         = ["hilts.vaughan@gmail.com"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{This is a Huginn agent for Plex Media Server that enables you to produce events for things happening on your Media Server.}
 
-  spec.homepage      = "https://github.com/[my-github-username]/huginn_plex_agent"
+  spec.homepage      = "https://github.com/hilts-vaughan/plex-huginn-ruby"
 
   spec.license       = "MIT"
 
