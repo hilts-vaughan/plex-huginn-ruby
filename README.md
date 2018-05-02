@@ -40,6 +40,6 @@ You get a payload that looks something like this:
 
 # Need something?
 
-If I"m missing somem functionality, let me know. This is super basic now but it fit my use case, which was the important thing for me. If you have other needs (such as things other than updated, like, say, new...) then we can talk or you can submit a pull request!
+If I'm missing somem functionality, let me know. This is super basic now but it fit my use case, which was the important thing for me. If you have other needs (such as things other than updated, like, say, new...) then we can talk or you can submit a pull request!
 
 I will add things as I need them. Thanks for looking.
