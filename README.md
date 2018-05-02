@@ -1,8 +1,8 @@
 # PlexAgent
 
-Welcome to your new agent gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/huginn_plex_agent`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby Gem for Huginnn will enable you to get events about your Plex library changing. This is valuable if you want to send Digest Emails, alert other people in your household to the new changes in your library or whatever else your imagination can figure out.
 
-TODO: Delete this and the text above, and describe your gem
+In my personal use case, I use this for notifying a couple people that things are now available and that we should watch them together. It also let's me know as an added bonus, since my life is busy and I don't have time to just check Plex for new content all the time.
 
 ## Installation
 
@@ -11,37 +11,35 @@ This gem is run as part of the [Huginn](https://github.com/huginn/huginn) projec
 Add this string to your Huginn's .env `ADDITIONAL_GEMS` configuration:
 
 ```ruby
-huginn_plex_agent
-# when only using this agent gem it should look like this:
-ADDITIONAL_GEMS=huginn_plex_agent
+# when only using this agent gem it should look like this, otherwise just append:
+ADDITIONAL_GEMS=plex-ruby,huginn_plex_agent(github: hilts-vaughan/plex-huginn-ruby)
 ```
 
-And then execute:
+And then execute if you are running local, Docker should take care of this otherwise:
 
     $ bundle
 
 ## Usage
 
-TODO: Write usage instructions here
+1. You will need a local Plex Media Server, which I assume you have if you landed up here. 
+2. You will need a Plex Server API Key. You can get one [here](https://forums.plex.tv/discussion/129922/how-to-request-a-x-plex-token-token-for-your-app/p1) if you don't already have one -- you need it to configure the agent.
+3. You will need to configure the Agent -- it just appears as a Plex Agent -- give your host, portname and API like so:
+
+![plex](/assets/configure.png)
+
 
 ## Development
 
-Running `rake` will clone and set up Huginn in `spec/huginn` to run the specs of the Gem in Huginn as if they would be build-in Agents. The desired Huginn repository and branch can be modified in the `Rakefile`:
+If you want to contribute, you should check out the base agent library: https://github.com/[my-github-username]/huginn_plex_agent/fork and then follow their guidance there. 
 
-```ruby
-HuginnAgent.load_tasks(branch: '<your branch>', remote: 'https://github.com/<github user>/huginn.git')
-```
+## Using the events
 
-Make sure to delete the `spec/huginn` directory and re-run `rake` after changing the `remote` to update the Huginn source code.
+You get a payload that looks something like this:
 
-After the setup is done `rake spec` will only run the tests, without cloning the Huginn source again.
+![plex](/assets/event.png)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# Need something?
 
-## Contributing
+If I"m missing somem functionality, let me know. This is super basic now but it fit my use case, which was the important thing for me. If you have other needs (such as things other than updated, like, say, new...) then we can talk or you can submit a pull request!
 
-1. Fork it ( https://github.com/[my-github-username]/huginn_plex_agent/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+I will add things as I need them. Thanks for looking.
